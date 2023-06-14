@@ -1,4 +1,3 @@
-import React from 'react'
 import { useEffect, useState } from 'react'
 import axios from '../utils/axios'
 import PostItem from "../components/PostItem";
@@ -6,7 +5,8 @@ import PostItem from "../components/PostItem";
 export const PostsPage = () => {
     const [posts, setPosts] = useState([])
 
-    const fetchMyPosts = async () => {
+
+    const fetchMyPosts =  async () => {
         try {
             const { data } = await axios.get('/posts/user/me')
             setPosts(data)
@@ -14,6 +14,7 @@ export const PostsPage = () => {
             console.log(error)
         }
     }
+
 
     useEffect(() => {
         fetchMyPosts()
